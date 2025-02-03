@@ -1,2 +1,5 @@
 podman network create --subnet fd00:1:1::/64 postgres-network
 podman volume create pgdata -o device=/data/dev/volumes/postgres_data -o type=bind
+# create a file called ./secret.txt and add you password to it
+podman secret create pgsqladmin ./secret.txt
+
