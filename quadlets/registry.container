@@ -1,0 +1,17 @@
+[Unit]
+Description=Richard's OCI registry
+
+[Container]
+ContainerName=registry
+Environment=REGISTRY_HTTP_ADDR=0.0.0.0:443 REGISTRY_HTTP_TLS_CERTIFICATE=/certs/local.crt REGISTRY_HTTP_TLS_KEY=/certs/local.decrypted.key
+Image=registry:2
+Network=systemd-registry
+PublishPort=5001:443
+Volume=/home/richard/cert:/certs
+Volume=systemd-registrydata:/var/lib/registry
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target

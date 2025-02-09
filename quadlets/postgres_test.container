@@ -1,0 +1,25 @@
+[Unit]
+Description=Richard's Postgres test
+
+[Container]
+ContainerName=postgres_test
+Environment=POSTGRES_PASSWORD_FILE=/run/secrets/pgsqladmin PGDATA=/var/lib/postgresql/data/testing_times
+EnvironmentFile=/data/dev/postgres_setup/.env
+HealthCmd=pg_isready -d postgres
+HealthInterval=10s
+HealthRetries=5
+HealthTimeout=5s
+Image=richard/postgres:latest
+Network=systemd-postgres-network
+PublishPort=5432:5432
+Secret=pgsqladmin
+UserNS=keep-id:uid=999,gid=999
+Volume=systemd-pgdata:/var/lib/postgresql/data
+Volume=/data/dev/postgres_setup/init-user-db.sh:/docker-entrypoint-initdb.d/init-user-db.sh
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+

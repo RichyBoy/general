@@ -1,0 +1,6 @@
+[Volume]
+Device=/data/dev/volumes/postgres_data
+Driver=local
+Options=bind
+Type=none
+

@@ -1,0 +1,19 @@
+# foofoo.container
+[Unit]
+Description=Richard's django webdev
+
+[Container]
+ContainerName=foofoo
+ExposeHostPort=8000
+Image=foofoo:latest
+Network=systemd-webdev
+Network=systemd-postgres-network
+PublishPort=4321:8000
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+
+

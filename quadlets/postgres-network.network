@@ -1,0 +1,6 @@
+# postgres-network.network
+[Network]
+Driver=bridge
+#IPv6=true
+Subnet=fd00:1:1::/64
+Label=postgres-network

@@ -1,0 +1,6 @@
+[Volume]
+Device=/data/dev/registry
+Driver=local
+Options=bind
+Type=none
+Label=registry-data

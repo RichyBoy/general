@@ -1,0 +1,6 @@
+# registry.network
+[Network]
+Driver=bridge
+#IPv6=true
+Subnet=fd00:1:2::/64
+Label=registry-network

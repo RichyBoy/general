@@ -1,0 +1,17 @@
+[Unit]
+Description=Richard's webdev reverse proxy
+
+[Container]
+ContainerName=webdev-rp
+Image=richard/reverseproxy:latest
+Network=systemd-webdev
+PublishPort=4040:80
+PublishPort=4443:443
+Sysctl=net.ipv6.conf.all.disable_ipv6=0 net.ipv6.conf.all.forwarding=1
+
+[Service]
+Restart=always
+
+[Install]
+WantedBy=default.target
+

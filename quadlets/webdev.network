@@ -1,0 +1,6 @@
+# webdev.network
+[Network]
+Driver=bridge
+#IPv6=true
+Subnet=fd00:1:3::/64
+Label=webdev-network
